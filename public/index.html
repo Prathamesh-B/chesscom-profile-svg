@@ -12,7 +12,7 @@
             }
             .container {
                 max-width: 800px;
-                margin: 50px auto;
+                margin: 20px auto;
                 padding: 20px;
                 background-color: #f8f8f8;
                 border-radius: 10px;
@@ -29,12 +29,21 @@
                 display: block;
                 margin: 10px auto;
             }
+            .code-block {
+                display: block;
+                background-color: #f0f0f0;
+                padding: 10px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .code-block code {
+                white-space: pre;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <h1>Chess.com Profile SVG Generator</h1>
-
             <div class="section">
                 <h2>Description:</h2>
                 <p>
@@ -46,7 +55,6 @@
                     as Rapid, Bullet, and Blitz.
                 </p>
             </div>
-
             <div class="section">
                 <h2>Features:</h2>
                 <ul>
@@ -68,7 +76,33 @@
                     </li>
                 </ul>
             </div>
-
+            <div class="section">
+                <h2>Usage</h2>
+                <p>
+                    If you want to use this project on your GitHub profile, I
+                    recommend forking and deploying it to your own Vercel
+                    instance and using the project with your own URLs. <br />
+                    To deploy on Vercel, click the button below.
+                </p>
+                <div class="deploy-button">
+                    <a
+                        href="https://vercel.com/import/project?template=https://github.com/your-username/chesscom-profile-svg"
+                    >
+                        <img
+                            src="https://vercel.com/button"
+                            alt="Deploy to Vercel"
+                        />
+                    </a>
+                </div>
+                <p>
+                    After deployment, access the service at
+                    <code class="code-block"
+                        >http://your-vercel-url/stats?username={Chess.com
+                        Username}</code
+                    >
+                    to get the SVG image.
+                </p>
+            </div>
             <div class="section">
                 <h2>Example:</h2>
                 <img
@@ -76,8 +110,32 @@
                     src="https://github.com/Prathamesh-B/chesscom-profile-svg/assets/55992548/cc57f5c2-9474-4bca-861d-e53efc65ea06"
                     alt="Default Theme"
                 />
+                <div align="center">
+                    <code class="code-block">
+                        [![ChessStats](https://chesscom-profile-svg.vercel.app/stats?username={Chess.com_Username}&theme={Theme}&borderRadius={Radius}](https://chesscom-profile-svg.vercel.app/stats?username=PrathamRex)
+                    </code>
+                    or
+                    <code class="code-block">
+                        &lt;img
+                        src="https://chesscom-profile-svg.vercel.app/stats?username={Chess.com_Username}&amp;theme={Theme}&amp;borderRadius={Radius}"
+                        alt="ChessStats"/&gt;
+                    </code>
+                </div>
             </div>
-
+            <div class="section">
+                <h2>Themes:</h2>
+                <img
+                    class="theme-image"
+                    src="https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PrathamRex/phpGVlTcQ.png"
+                    alt="Default Theme"
+                />
+            </div>
+            <p>
+                Check GitHub for more information
+                <a href="https://github.com/Prathamesh-B/chesscom-profile-svg"
+                    >here</a
+                >.
+            </p>
             <div class="section">
                 <h2>Contributing:</h2>
                 <p>
@@ -85,7 +143,6 @@
                     pull request.
                 </p>
             </div>
-
             <div class="section">
                 <h2>License:</h2>
                 <p>This project is licensed under the MIT License.</p>
