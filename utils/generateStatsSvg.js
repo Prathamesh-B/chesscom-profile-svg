@@ -1,6 +1,6 @@
 import { themeStyles } from './themes.js';
 
-export default function generateStatsSvg(username, stats, theme = 'default') {
+export default function generateStatsSvg(username, stats, theme = 'default', borderRadius = 10) {
     const colors = themeStyles[theme] || themeStyles.default;
     return `
         <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation: isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='ltr'>
@@ -44,18 +44,18 @@ export default function generateStatsSvg(username, stats, theme = 'default') {
                 }
             </style>
             <g style='isolation: isolate'>
-                <rect class='background' rx='10' x='0.5' y='0.5' width='494' height='164'/>
+                <rect class='background' rx='${borderRadius}' x='0.5' y='0.5' width='494' height='164'/>
             </g>
             <g data-testid="card-title" transform="translate(0, 30)">
-                <text x="50%" y="0" text-anchor="middle" class="header">${username}'s Chess.com Stats</text>
+                <text x="50%" y="0" text-anchor="middle" class="header"  style='opacity: 0; animation: fadein 0.5s linear forwards 0.3s'>${username}'s Chess.com Stats</text>
             </g>
             <g style='isolation: isolate'>
                 <line x1='165' y1='50' x2='165' y2='148' vector-effect='non-scaling-stroke' stroke-width='1' class='line' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
                 <line x1='330' y1='50' x2='330' y2='148' vector-effect='non-scaling-stroke' stroke-width='1' class='line' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
             </g>
-            ${generateStatSection('Rapid', stats['chess_rapid'], 82.5, 0.5, getRapidIcon())}
-            ${generateStatSection('Bullet', stats['chess_bullet'], 247.5, 0.9, getBulletIcon())}
-            ${generateStatSection('Blitz', stats['chess_blitz'], 412.5, 1.3, getBlitzIcon())}
+            ${generateStatSection('Rapid', stats && stats['chess_rapid'], 82.5, 0.5, getRapidIcon())}
+            ${generateStatSection('Bullet', stats && stats['chess_bullet'], 247.5, 0.9, getBulletIcon())}
+            ${generateStatSection('Blitz', stats && stats['chess_blitz'], 412.5, 1.3, getBlitzIcon())}
     </svg>`;
 }
 

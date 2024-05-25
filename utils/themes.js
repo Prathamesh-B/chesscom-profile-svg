@@ -29,4 +29,14 @@ export const themeStyles = {
         bulletIconFill: '#e3aa24',
         blitzIconFill: '#fad541',
     },
+    graywhite: {
+        backgroundFill: '#ffffff',
+        backgroundStroke: '#24292e',
+        headerFill: '#24292e',
+        labelFill: '#24292e',
+        numberFill: '#24292e',
+        rapidIconFill: '#81b64c',
+        bulletIconFill: '#e3aa24',
+        blitzIconFill: '#fad541',
+    }
 };

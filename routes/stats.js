@@ -11,16 +11,17 @@ export default async (req, res) => {
     try {
         const username = req.query.username;
         const theme = req.query.theme || 'default';
+        const borderRadius = req.query.borderRadius || 10;
         if (!username) {
-            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}');
+            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}', theme, borderRadius);
         }
 
         const stats = await getChessStats(username);
         if (stats && stats.error === 'User not found') {
-            return sendSvgResponse(res, 'Username Not Found!', '', theme);
+            return sendSvgResponse(res, 'Username Not Found!', '', theme, borderRadius);
         }
 
-        const svg = generateStatsSvg(username, stats, theme);
+        const svg = generateStatsSvg(username, stats, theme, borderRadius);
         res.send(svg);
     } catch (error) {
         console.error(error);
