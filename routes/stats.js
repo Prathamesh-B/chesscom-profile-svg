@@ -13,12 +13,12 @@ export default async (req, res) => {
         const theme = req.query.theme || 'default';
         const borderRadius = req.query.borderRadius || 10;
         if (!username) {
-            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}', theme, borderRadius);
+            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}&borderRadius={Radius}', theme, borderRadius);
         }
 
         const stats = await getChessStats(username);
         if (stats && stats.error === 'User not found') {
-            return sendSvgResponse(res, 'Username Not Found!', '', theme, borderRadius);
+            return sendSvgResponse(res, 'Username Not Found!', '/stats?username={Chess.com Username}&theme={Theme}&borderRadius={Radius}', theme, borderRadius);
         }
 
         const svg = generateStatsSvg(username, stats, theme, borderRadius);
