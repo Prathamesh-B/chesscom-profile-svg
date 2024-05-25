@@ -1,0 +1,32 @@
+export const themeStyles = {
+    default: {
+        backgroundFill: '#393835',
+        backgroundStroke: '#c7c7c6',
+        headerFill: '#ffffff',
+        labelFill: '#c7c7c6',
+        numberFill: '#ffffff',
+        rapidIconFill: '#81b64c',
+        bulletIconFill: '#e3aa24',
+        blitzIconFill: '#fad541',
+    },
+    light: {
+        backgroundFill: '#fffefe',
+        backgroundStroke: '#e4e2e2',
+        headerFill: '#4c71f2',
+        labelFill: '#434d58',
+        numberFill: '#4c71f2',
+        rapidIconFill: '#81b64c',
+        bulletIconFill: '#e3aa24',
+        blitzIconFill: '#fad541',
+    },
+    dark: {
+        backgroundFill: '#20232a',
+        backgroundStroke: '#c7c7c6',
+        headerFill: '#61dafb',
+        labelFill: '#ffffff',
+        numberFill: '#61dafb',
+        rapidIconFill: '#81b64c',
+        bulletIconFill: '#e3aa24',
+        blitzIconFill: '#fad541',
+    },
+};

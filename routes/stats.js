@@ -1,5 +1,5 @@
 import getChessStats from '../utils/fetchData.js';
-import sendSvgResponse from '../utils/generateSVG.js';
+import sendSvgResponse from '../utils/generateSvg.js';
 import generateStatsSvg from '../utils/generateStatsSvg.js';
 
 export default async (req, res) => {
@@ -10,16 +10,17 @@ export default async (req, res) => {
 
     try {
         const username = req.query.username;
+        const theme = req.query.theme || 'default';
         if (!username) {
-            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}');
+            return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}');
         }
 
         const stats = await getChessStats(username);
         if (stats && stats.error === 'User not found') {
-            return sendSvgResponse(res, 'Username Not Found!');
+            return sendSvgResponse(res, 'Username Not Found!', '', theme);
         }
 
-        const svg = generateStatsSvg(username, stats);
+        const svg = generateStatsSvg(username, stats, theme);
         res.send(svg);
     } catch (error) {
         console.error(error);
