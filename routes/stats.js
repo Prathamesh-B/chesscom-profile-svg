@@ -12,6 +12,8 @@ export default async (req, res) => {
         const username = req.query.username;
         const theme = req.query.theme || 'default';
         const borderRadius = req.query.borderRadius || 10;
+        const disableAnimations = req.query.disableAnimations?.toLowerCase() === 'true';
+
         if (!username) {
             return sendSvgResponse(res, 'No Username Provided!', '/stats?username={Chess.com Username}&theme={Theme}&borderRadius={Radius}', theme, borderRadius);
         }
@@ -21,7 +23,7 @@ export default async (req, res) => {
             return sendSvgResponse(res, 'Username Not Found!', '/stats?username={Chess.com Username}&theme={Theme}&borderRadius={Radius}', theme, borderRadius);
         }
 
-        const svg = generateStatsSvg(username, stats, theme, borderRadius);
+        const svg = generateStatsSvg(username, stats, theme, borderRadius, disableAnimations);
         res.send(svg);
     } catch (error) {
         console.error(error);
